@@ -1,3 +1,25 @@
+variable "name" {
+  type        = string
+  description = "Name of the Kinesis Analytics application."
+}
+
+variable "jar" {
+  type        = string
+  description = "A relative path to the jar file."
+}
+
+variable "runtime_environment" {
+  type        = string
+  description = "The runtime environment for the application. Valid values: FLINK-1_6, FLINK-1_8, FLINK-1_11, FLINK-1_13."
+  default     = "FLINK-1_13"
+}
+
+variable "start_application" {
+  type        = bool
+  description = "Whether to start or stop the application."
+  default     = true
+}
+
 variable "create_s3_bucket" {
   type        = string
   description = "Determines whether a an S3 bucket is created or to use an existing S3 bucket."
@@ -16,22 +38,6 @@ variable "s3_bucket_force_destroy" {
   default     = false
 }
 
-variable "name" {
-  type        = string
-  description = "Name of the Kinesis Analytics application."
-}
-
-variable "jar" {
-  type        = string
-  description = "A relative path to the jar file."
-}
-
-variable "runtime_environment" {
-  type        = string
-  description = "The runtime environment for the application. Valid values: FLINK-1_6, FLINK-1_8, FLINK-1_11, FLINK-1_13."
-  default     = "FLINK-1_13"
-}
-
 variable "create_iam_role" {
   type        = string
   description = "Determines whether a an IAM role is created or to use an existing IAM role"
@@ -42,12 +48,6 @@ variable "iam_role_arn" {
   type        = string
   description = "Existing IAM role ARN for the cluster. Required if create_iam_role is set to false"
   default     = null
-}
-
-variable "start_application" {
-  type        = bool
-  description = "Whether to start or stop the application."
-  default     = true
 }
 
 variable "subnet_ids" {
