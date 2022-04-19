@@ -7,7 +7,6 @@
     ],
     "mounts": [
         "source=${localEnv:HOME}/.aws,target=/root/.aws,type=bind",
-        "source=${localEnv:HOME}/.cache/pre-commit,target=/root/.cache/pre-commit,type=bind",
-        "source=${localEnv:HOME}/.terraform.d/plugins,target=/root/.terraform.d/plugins,type=bind",
+        "source=${localEnv:HOME}/.cache/pre-commit,target=/root/.cache/pre-commit,type=bind"
     ]
 }
